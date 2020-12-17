@@ -1,0 +1,31 @@
+{
+  "name": "defidollar-core",
+  "version": "1.3.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "truffle compile",
+    "migrate": "truffle migrate --reset",
+    "ganache": "ganache-cli -i 420 -l 10000000 -m 'mosquito lizard cloth enhance armed month twice machine decline post toy float'",
+    "ganache:ci": "npm run ganache > /dev/null &",
+    "test": "truffle test",
+    "test:debug": "DEBUG=true npm test",
+    "coverage": "truffle run coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@chainlink/contracts": "0.0.7-beta",
+    "@defidollar/core-client-lib": "github:defidollar/core-client-lib#f86750109013c791b2823371c9515b29c0436686",
+    "@openzeppelin/contracts": "^2.5.1"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^1.0.42",
+    "csv-writer": "^1.6.0",
+    "eth-gas-reporter": "^0.2.17",
+    "ganache": "^6.4.4",
+    "solidity-coverage": "^0.7.9",
+    "truffle": "^5.1.36",
+    "truffle-plugin-verify": "^0.3.11"
+  }
+}

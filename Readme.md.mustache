@@ -1,0 +1,98 @@
+# {{project_name}}
+
+[TOC]
+
+## Details
+
+- **Client** {{client_name}}
+- **Date** {{date}}
+- **Lead reviewer** Daniel Luca (@cleanunicorn)
+- **Reviewers** Daniel Luca (@cleanunicorn), Andrei Simion (@andreiashu)
+- **Repository**: [{{project_name}}]({{source_repository}})
+- **Commit hash** `{{commit_hash}}`
+- **Technologies**
+  - Solidity
+  - Node.JS
+
+## Issues Summary
+
+| SEVERITY       |    OPEN    |    CLOSED    |
+|----------------|:----------:|:------------:|
+{{#issues_summary}}
+|  {{severity}}  |  {{open}}  |  {{closed}}  |
+{{/issues_summary}}
+
+## Executive summary
+
+This report represents the results of the engagement with **{{client_name}}** to review **{{project_name}}**.
+
+The review was conducted over the course of **{{review_period}}** from **{{date_interval}}**. A total of **{{person_days}} person-days** were spent reviewing the code.
+
+### Documentation
+
+We received the following document which was updated during the review with more information and notes.
+- [DefiDollar DAO Token (DFD) buyback vault proposal](https://forum.dusd.finance/t/defidollar-dao-token-dfd-buyback-vault/26)
+
+### Meetings
+
+The following meetings were recorded and reviewed later by the audit team:
+
+- [Sync #1 recording](https://us02web.zoom.us/rec/share/1vqjTd906U-gpHC9vpwjpQcfbMdORzT1KsNnaNQyH8VGPDQxeKMkB7GIkyL_lcbn.M3oTUPbocGIip95n)
+  - Passcode: `S$5tzUS#`
+
+## Scope
+
+The audit focused on an update of the codebase to [{{project_name}}]({{source_repository}}) identified by the commit hash `{{commit_hash}}`.
+ 
+**Closer look at**
+- Comptroller.sol
+- DFDComptroller.sol
+- ibDFD.sol
+
+
+We focused on manually reviewing the codebase, searching for security issues such as, but not limited to re-entrancy problems, transaction ordering, block timestamp dependency, exception handling, call stack depth limitation, integer overflow/underflow, self-destructible contracts, unsecured balance, use of origin, gas costly patterns, architectural problems, code readability.
+
+
+## Highlevel code flow description
+
+The new code introduced a `Comptroller.sol` contract, which splits the income revenue between `ibDUSD` and `DFDComptroller`. Users who stake DUSD and/or DFD tokens receive interest-bearing tokens (i.e., ibDUSD/ibDFD) and therefore are being rewarded interest from the Defi Dollar platform.
+
+`Comptroller.harvest()` method calls `Core.harvest()` to mint new DUSD tokens if the total available system assets have increased. These newly minted DUSD tokens are then distributed by the `Comptroller` to `DFDComptroller` and `ibDUSD`.
+
+In turn, the `DFDComptroller.harvest()` method uses the accrued DUSD to buy DFD tokens on the open market (Uniswap). These DFD tokens are then transferred to the ibDFD contract.
+
+Another way the DFD supply can increase is through the liquidity mining mechanism whereby users of the platform receive DFD tokens for supplying liquidity.
+
+<div style="page-break-after: always"></div>
+
+## Issues
+
+{{#issues}}
+
+### [{{title}}]({{url}})
+![Issue status: {{status}}](https://img.shields.io/static/v1?label=Status&message={{status}}&color={{status_color}}&style=flat-square) ![{{severity}}](https://img.shields.io/static/v1?label=Severity&message={{severity}}&color={{severity_color}}&style=flat-square)
+
+{{{body}}}
+
+---
+
+<div style="page-break-after: always"></div>
+
+{{/issues}}
+
+## Artifacts
+
+### UML Diagram
+
+Generated with [sol2uml](https://github.com/naddison36/sol2uml):
+
+```bash
+npm link sol2uml --only=production
+sol2uml ./code/contracts
+```
+
+![Image](./static/diagrams/sol2uml_contract_diagram.svg)
+
+## License
+
+This report falls under the terms described in the included [LICENSE](https://www.apache.org/licenses/LICENSE-2.0.txt).
