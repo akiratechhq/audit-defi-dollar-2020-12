@@ -17,10 +17,9 @@
      - [[Comptroller] - Improve management of beneficiary allocations](#comptroller---improve-management-of-beneficiary-allocations)
      - [[Comptroller] - Loop iteration can be improved](#comptroller---loop-iteration-can-be-improved)
      - [[DFDComptroller] - getReward method can save gas in certain situations](#dfdcomptroller---getreward-method-can-save-gas-in-certain-situations)
-     - [Increase the number of tests](#increase-the-number-of-tests)
      - [Consider using an contract registry tracker](#consider-using-an-contract-registry-tracker)
-     - [[ibDUSD] - Discussion of (future) potential flash loan attack vector](#ibdusd---discussion-of-future-potential-flash-loan-attack-vector)
      - [Aim to use modifiers only for checks](#aim-to-use-modifiers-only-for-checks)
+     - [Increase the number of tests](#increase-the-number-of-tests)
  - [Artifacts](#artifacts)
      - [UML Diagram](#uml-diagram)
  - [License](#license)
@@ -42,10 +41,10 @@
 
 | SEVERITY       |    OPEN    |    CLOSED    |
 |----------------|:----------:|:------------:|
-|  Informational  |  4  |  0  |
-|  Minor  |  5  |  0  |
-|  Medium  |  1  |  0  |
-|  Major  |  1  |  0  |
+|  Informational  |  1  |  2  |
+|  Minor  |  0  |  5  |
+|  Medium  |  0  |  1  |
+|  Major  |  0  |  1  |
 
 ## Executive summary
 
@@ -94,7 +93,7 @@ Another way the DFD supply can increase is through the liquidity mining mechanis
 
 
 ### [[DFDComptroller] - Uniswap swapExactTokensForTokens wrong array size for path](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/2)
-![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Major](https://img.shields.io/static/v1?label=Severity&message=Major&color=E76F51&style=flat-square)
+![Issue status: Fixed](https://img.shields.io/static/v1?label=Status&message=Fixed&color=2A9D8F&style=flat-square) ![Major](https://img.shields.io/static/v1?label=Severity&message=Major&color=E76F51&style=flat-square)
 
 **Description**
 
@@ -138,7 +137,7 @@ Change `path` variable to an array length of 2 elements:
 
 
 ### [[DFDComptroller] - harvest() method is vulnerable to frontrunning](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/3)
-![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Medium](https://img.shields.io/static/v1?label=Severity&message=Medium&color=F4A261&style=flat-square)
+![Issue status: Fixed](https://img.shields.io/static/v1?label=Status&message=Fixed&color=2A9D8F&style=flat-square) ![Medium](https://img.shields.io/static/v1?label=Severity&message=Medium&color=F4A261&style=flat-square)
 
 **Description**
 
@@ -185,7 +184,7 @@ https://uniswap.org/docs/v2/advanced-topics/pricing/
 
 
 ### [[DFDComptroller] - Optimize timestamp retrieval](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/9)
-![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Minor](https://img.shields.io/static/v1?label=Severity&message=Minor&color=e9c46a&style=flat-square)
+![Issue status: Acknowledged](https://img.shields.io/static/v1?label=Status&message=Acknowledged&color=4054C7&style=flat-square) ![Minor](https://img.shields.io/static/v1?label=Severity&message=Minor&color=e9c46a&style=flat-square)
 
 **Description**
 
@@ -229,7 +228,7 @@ The `now` usage is deprecated in Solidity 0.7.0 and `block.timestamp` is require
 
 
 ### [[DFDComptroller] - Uniswap exchange will happen instantly](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/7)
-![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Minor](https://img.shields.io/static/v1?label=Severity&message=Minor&color=e9c46a&style=flat-square)
+![Issue status: Fixed](https://img.shields.io/static/v1?label=Status&message=Fixed&color=2A9D8F&style=flat-square) ![Minor](https://img.shields.io/static/v1?label=Severity&message=Minor&color=e9c46a&style=flat-square)
 
 **Description**
 
@@ -296,7 +295,7 @@ deadline | uint | Unix timestamp after which the transaction will revert.
 
 
 ### [[Comptroller] - Improve management of beneficiary allocations](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/6)
-![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Minor](https://img.shields.io/static/v1?label=Severity&message=Minor&color=e9c46a&style=flat-square)
+![Issue status: Fixed](https://img.shields.io/static/v1?label=Status&message=Fixed&color=2A9D8F&style=flat-square) ![Minor](https://img.shields.io/static/v1?label=Severity&message=Minor&color=e9c46a&style=flat-square)
 
 **Description**
 
@@ -330,7 +329,7 @@ Because the allocation is already replaced as an array, it will not be a signifi
 
 
 ### [[Comptroller] - Loop iteration can be improved](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/5)
-![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Minor](https://img.shields.io/static/v1?label=Severity&message=Minor&color=e9c46a&style=flat-square)
+![Issue status: Fixed](https://img.shields.io/static/v1?label=Status&message=Fixed&color=2A9D8F&style=flat-square) ![Minor](https://img.shields.io/static/v1?label=Severity&message=Minor&color=e9c46a&style=flat-square)
 
 **Description**
 
@@ -421,7 +420,7 @@ for (uint i = 0; i < beneficiariesLength; i++) {
 
 
 ### [[DFDComptroller] - getReward method can save gas in certain situations](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/4)
-![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Minor](https://img.shields.io/static/v1?label=Severity&message=Minor&color=e9c46a&style=flat-square)
+![Issue status: Fixed](https://img.shields.io/static/v1?label=Status&message=Fixed&color=2A9D8F&style=flat-square) ![Minor](https://img.shields.io/static/v1?label=Severity&message=Minor&color=e9c46a&style=flat-square)
 
 **Description**
 
@@ -457,25 +456,8 @@ Next lines of code should only be executed if the `reward` variable is greater t
 <div style="page-break-after: always"></div>
 
 
-### [Increase the number of tests](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/11)
-![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Informational](https://img.shields.io/static/v1?label=Severity&message=Informational&color=fef2c0&style=flat-square)
-
-**Description**
-
-There is some functionality that, at the moment, isn't tested; however, it is critical for the whole system to work together.
-
-**Recommendation**
-
-Increase the number of tests and make sure the active code coverage (not taking into account the proxy contracts) is close to 100%.
-
-
----
-
-<div style="page-break-after: always"></div>
-
-
 ### [Consider using an contract registry tracker](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/10)
-![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Informational](https://img.shields.io/static/v1?label=Severity&message=Informational&color=fef2c0&style=flat-square)
+![Issue status: Acknowledged](https://img.shields.io/static/v1?label=Status&message=Acknowledged&color=4054C7&style=flat-square) ![Informational](https://img.shields.io/static/v1?label=Severity&message=Informational&color=fef2c0&style=flat-square)
 
 **Description**
 
@@ -585,38 +567,8 @@ The system may become really complex in the future and a centralized address map
 <div style="page-break-after: always"></div>
 
 
-### [[ibDUSD] - Discussion of (future) potential flash loan attack vector](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/8)
-![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Informational](https://img.shields.io/static/v1?label=Severity&message=Informational&color=fef2c0&style=flat-square)
-
-**Description**
-
-We'd like to further discuss what we believe might be a non-issue but thought it's worth investigating together with Arpit.
-
-Imagine the following flow of contract interactions, all within one transaction. Please note the (*) at the end:
-
-1. borrow a lot of DUSD from Uniswap's DUSD/DFD pool
-1. ibDUSD.deposit DUSD: receive ibDUSD tokens
-1. borrow again DUSD from Uniswap's DUSD/DFD pool
-1. ibDUSD.deposit DUSD: receive a lot more ibDUSD tokens bc there was an increased amount of `earned` DUSD reward that has been distributed to ibDUSD (caveat: see (*) below)
-1. ibDUSD.withdraw all DUSD deposited (it will burn my ibDUSD)
-1. return borrowed DUSD to Uniswap
-1. I should have extra DUSD now
-
-(*) this is most probably a non-issue since Core.totalSystemAssets() does not include amount of dusd in ibDUSD contract (only includes amount of DUSD from peak(s)). Therefore the `Core.harvest()` method will not mint new `dusd` when a user deposits more `dusd` in the ibDUSD contract.
-
-Basically we're trying to make sure that:
-
-1. our understanding (*) above is correct
-1. the client is aware that this becomes an attack vector if for some reason in the future, the architecture of the system changes and somehow the DUSD stored in ibDUSD contract is being included in the calculation of `totalSystemAssets()` - this might not make sense anyway, but better to discuss it early.
-
-
----
-
-<div style="page-break-after: always"></div>
-
-
 ### [Aim to use modifiers only for checks](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/1)
-![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Informational](https://img.shields.io/static/v1?label=Severity&message=Informational&color=fef2c0&style=flat-square)
+![Issue status: Fixed](https://img.shields.io/static/v1?label=Status&message=Fixed&color=2A9D8F&style=flat-square) ![Informational](https://img.shields.io/static/v1?label=Severity&message=Informational&color=fef2c0&style=flat-square)
 
 **Description**
 
@@ -667,6 +619,23 @@ In this case, removing the modifier from `ibDUSD` and calling `controller.harves
 [It is recommended](https://consensys.net/blog/blockchain-development/solidity-best-practices-for-smart-contract-security/#use-modifiers-only-for-checks) to keep any state changes outside of modifiers.
 
 In most cases, code that changes state that is present in modifiers can easily be moved to function blocks without too much development time invested.
+
+
+---
+
+<div style="page-break-after: always"></div>
+
+
+### [Increase the number of tests](https://github.com/monoceros-alpha/audit-defi-dollar-2020-12/issues/11)
+![Issue status: Open](https://img.shields.io/static/v1?label=Status&message=Open&color=98c1d9&style=flat-square) ![Informational](https://img.shields.io/static/v1?label=Severity&message=Informational&color=fef2c0&style=flat-square)
+
+**Description**
+
+There is some functionality that, at the moment, isn't tested; however, it is critical for the whole system to work together.
+
+**Recommendation**
+
+Increase the number of tests and make sure the active code coverage (not taking into account the proxy contracts) is close to 100%.
 
 
 ---
