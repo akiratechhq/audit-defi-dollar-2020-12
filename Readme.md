@@ -50,7 +50,7 @@
 
 This report represents the results of the engagement with **Yield Studio Pte. Ltd.** to review **DefiDollar**.
 
-The review was conducted over the course of **~1 week** from **December 8 to December 14, 2020**. A total of **4 person-days** were spent reviewing the code.
+The review was conducted over the course of **~2 weeks** from **December 8 to December 17, 2020**. A total of **8 person-days** were spent reviewing the code.
 
 ### Documentation
 

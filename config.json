@@ -2,7 +2,7 @@
     "client_name": "Yield Studio Pte. Ltd.",
     "commit_hash": "0dc7ea99f8e5e47e9f7b0ebc4a560854a98f52b0",
     "date": "December 2020",
-    "date_interval": "December 8 to December 14, 2020",
+    "date_interval": "December 8 to December 17, 2020",
     "issues": [
         {
             "active_lock_reason": null,
@@ -778,9 +778,9 @@
             }
         }
     ],
-    "person_days": "4",
+    "person_days": "8",
     "project_name": "DefiDollar",
-    "review_period": "~1 week",
+    "review_period": "~2 weeks",
     "source_repository": "git@github.com:defidollar/defidollar-core.git",
     "template": "./Readme.md.mustache"
 }
